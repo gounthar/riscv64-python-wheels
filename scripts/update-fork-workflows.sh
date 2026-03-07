@@ -39,11 +39,13 @@ CALLBACK_JOB='
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
         run: |
           gh api repos/gounthar/riscv64-python-wheels/dispatches \
             -f event_type=fork-release-published \
-            -f "client_payload[repo]=${{ github.repository }}" \
-            -f "client_payload[tag]=${{ github.ref_name }}"'
+            -f "client_payload[repo]=$REPO" \
+            -f "client_payload[tag]=$TAG"'
 
 echo "Adding index callback to fork workflows..."
 echo ""

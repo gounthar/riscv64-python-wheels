@@ -152,8 +152,7 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
     for name in sorted(package_names):
         pkg_dir = simple_dir / name
         pkg_dir.mkdir(exist_ok=True)
-        safe_name = html.escape(name)
-        index_links.append(f'    <a href="{safe_name}/">{safe_name}</a>')
+        index_links.append(f'    <a href="{name}/">{html.escape(name)}</a>')
 
         # Package index
         wheel_links = []
