@@ -1,17 +1,25 @@
-name: Update PEP 503 index
+name: Aggregate wheels and update PEP 503 index
+
+# This workflow:
+#   1. Scans all fork repos for riscv64 wheel releases
+#   2. Downloads new wheels not yet in the central release
+#   3. Creates/updates a dated central release with all wheels
+#   4. Regenerates the PEP 503 simple index on GitHub Pages
+#
+# Triggers:
+#   - Daily at 6 AM UTC (after nightly builds complete)
+#   - Manual dispatch
+#   - repository_dispatch from fork workflows after they publish a release
 
 on:
-  # Manual trigger
-  workflow_dispatch:
-  # Scheduled: daily at 3 AM UTC (after weekly builds complete)
   schedule:
-    - cron: '0 3 * * *'
-  # When this repo gets a release (fallback)
-  release:
-    types: [published]
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [fork-release-published]
 
 jobs:
-  update-index:
+  aggregate-and-index:
     runs-on: ubuntu-latest
 
     permissions:
@@ -26,13 +34,15 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Generate PEP 503 index from fork releases
+      - name: Aggregate wheels from fork releases
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/generate-index.py "" .
+        run: bash scripts/aggregate-wheels.sh
 
-      - name: Deploy to gh-pages
+      - name: Generate PEP 503 index from downloaded wheels
+        run: python scripts/generate-index.py wheels .
+
+      - name: Deploy index to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

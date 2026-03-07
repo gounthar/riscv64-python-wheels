@@ -63,6 +63,19 @@ def get_release_assets(repo: str) -> list[dict]:
     return assets
 
 
+def _find_release_tag(repo: str) -> str:
+    """Get the latest release tag from a repo."""
+    try:
+        result = subprocess.run(
+            ["gh", "release", "list", "--repo", repo, "--limit", "1",
+             "--json", "tagName", "--jq", ".[0].tagName"],
+            capture_output=True, text=True, check=True,
+        )
+        return result.stdout.strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return ""
+
+
 def generate_index(wheels_dir: str | None, output_dir: str) -> None:
     packages_file = Path(__file__).parent.parent / "packages.json"
     with open(packages_file) as f:
@@ -79,29 +92,46 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
     # Collect wheels from local directory or GitHub releases across forks
     wheels: dict[str, list[dict]] = {name: [] for name in package_names}
 
+    central_repo = "gounthar/riscv64-python-wheels"
+
     if wheels_dir and os.path.isdir(wheels_dir):
+        # Local mode: index wheels from a directory (with sha256 integrity)
         for whl_file in Path(wheels_dir).glob("*.whl"):
             name = normalize_name(whl_file.name.split("-")[0])
             if name in wheels:
                 sha = sha256_file(str(whl_file))
+                # Link to central repo release asset
+                tag = _find_release_tag(central_repo)
+                if tag:
+                    url = (
+                        f"https://github.com/{central_repo}/"
+                        f"releases/download/{tag}/{whl_file.name}"
+                    )
+                else:
+                    url = whl_file.name
                 wheels[name].append({
                     "filename": whl_file.name,
-                    "url": whl_file.name,
+                    "url": url,
                     "sha256": sha,
                 })
     else:
-        # Scan releases across all fork repos
-        fork_repos = {r for r in package_forks.values() if r}
-        print(f"Scanning releases in {len(fork_repos)} fork repos...")
+        # Remote mode: scan central repo releases first, then fork repos
+        print(f"Scanning central repo {central_repo}...")
+        all_assets = get_release_assets(central_repo)
 
-        all_assets = []
+        # Also scan fork repos for wheels not in central
+        fork_repos = {r for r in package_forks.values() if r}
+        print(f"Scanning {len(fork_repos)} fork repos...")
         for repo in sorted(fork_repos):
             print(f"  Checking {repo}...")
             all_assets.extend(get_release_assets(repo))
 
+        # Deduplicate: prefer central repo, keep latest version per filename
+        seen: set[str] = set()
         for asset in all_assets:
             name = normalize_name(asset["name"].split("-")[0])
-            if name in wheels:
+            if name in wheels and asset["name"] not in seen:
+                seen.add(asset["name"])
                 download_url = (
                     f"https://github.com/{asset['repo']}/releases/download/"
                     f"{asset['tag']}/{asset['name']}"
