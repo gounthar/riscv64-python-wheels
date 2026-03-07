@@ -1,12 +1,12 @@
 {
   "packages": [
-    {"name": "tokenizers", "version": null, "python": "cp313", "source": "huggingface/tokenizers", "lang": "rust", "status": "planned"},
-    {"name": "pydantic-core", "version": null, "python": "cp313", "source": "pydantic/pydantic-core", "lang": "rust", "status": "planned"},
-    {"name": "safetensors", "version": null, "python": "cp313", "source": "huggingface/safetensors", "lang": "rust", "status": "planned"},
-    {"name": "tiktoken", "version": null, "python": "cp313", "source": "openai/tiktoken", "lang": "rust", "status": "planned"},
-    {"name": "blake3", "version": null, "python": "cp313", "source": "BLAKE3-team/BLAKE3", "lang": "rust+c", "status": "planned"},
-    {"name": "sentencepiece", "version": null, "python": "cp313", "source": "google/sentencepiece", "lang": "c++", "status": "planned"},
-    {"name": "pillow", "version": null, "python": "cp313", "source": "python-pillow/Pillow", "lang": "c", "status": "planned"}
+    {"name": "tokenizers", "version": null, "python": "cp313", "source": "huggingface/tokenizers", "fork": "gounthar/tokenizers", "lang": "rust", "status": "planned"},
+    {"name": "pydantic-core", "version": null, "python": "cp313", "source": "pydantic/pydantic-core", "fork": "gounthar/pydantic-core", "lang": "rust", "status": "planned"},
+    {"name": "safetensors", "version": null, "python": "cp313", "source": "huggingface/safetensors", "fork": "gounthar/safetensors", "lang": "rust", "status": "planned"},
+    {"name": "tiktoken", "version": null, "python": "cp313", "source": "openai/tiktoken", "fork": "gounthar/tiktoken", "lang": "rust", "status": "planned"},
+    {"name": "blake3", "version": null, "python": "cp313", "source": "oconnor663/blake3-py", "fork": "gounthar/blake3-py", "lang": "rust+c", "status": "planned"},
+    {"name": "sentencepiece", "version": null, "python": "cp313", "source": "google/sentencepiece", "fork": "gounthar/sentencepiece", "lang": "c++", "status": "planned"},
+    {"name": "pillow", "version": null, "python": "cp313", "source": "python-pillow/Pillow", "fork": "gounthar/Pillow", "lang": "c", "status": "planned"}
   ],
   "build_target": {
     "arch": "riscv64",
