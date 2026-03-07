@@ -36,6 +36,7 @@ CALLBACK_JOB='
     if: success()
     steps:
       - name: Trigger index update
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
         run: |

@@ -158,11 +158,11 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
         # Package index
         wheel_links = []
         for w in wheels[name]:
-            href = html.escape(w["url"])
+            href = w["url"]
             if w["sha256"]:
                 href += f"#sha256={w['sha256']}"
             wheel_links.append(
-                f'    <a href="{href}">{html.escape(w["filename"])}</a>'
+                f'    <a href="{html.escape(href)}">{html.escape(w["filename"])}</a>'
             )
 
         pkg_index = (
