@@ -1,0 +1,49 @@
+name: Detect upstream releases and trigger builds
+
+# This workflow checks PyPI daily for new versions of tracked packages.
+# When a new version is found, it triggers the build-riscv64.yml workflow
+# in the corresponding fork repository.
+#
+# REQUIRED SECRET: DISPATCH_TOKEN
+#   A GitHub Personal Access Token (classic) with the following scopes:
+#     - repo (full control of private repositories)
+#     - workflow (update GitHub Action workflows)
+#   This is needed because GITHUB_TOKEN cannot trigger workflows in other repos.
+#   Create at: https://github.com/settings/tokens
+#   Store as: Settings > Secrets and variables > Actions > DISPATCH_TOKEN
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Check for new upstream versions and trigger builds
+        env:
+          GH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: bash scripts/detect-and-trigger.sh
+
+      - name: Commit updated packages.json if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet packages.json; then
+            git add packages.json
+            git commit -m "chore: update package versions from upstream PyPI"
+            git push
+          else
+            echo "No version changes to commit."
+          fi
