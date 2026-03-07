@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """Generate a PEP 503 compliant simple package index.
 
-Reads packages.json for the package list and scans wheel files
-(from a local directory or GitHub release assets) to generate
-a static simple/ directory structure suitable for use with
-pip --extra-index-url.
+Reads packages.json for the package list and scans GitHub release
+assets across all fork repositories to generate a static simple/
+directory structure suitable for use with pip --extra-index-url.
 """
 
 import hashlib
@@ -30,7 +29,7 @@ def normalize_name(name: str) -> str:
 
 
 def get_release_assets(repo: str) -> list[dict]:
-    """Fetch release assets from GitHub using gh CLI."""
+    """Fetch release assets from a GitHub repo using gh CLI."""
     try:
         result = subprocess.run(
             ["gh", "release", "list", "--repo", repo, "--json", "tagName"],
@@ -55,6 +54,7 @@ def get_release_assets(repo: str) -> list[dict]:
                     assets.append({
                         "name": asset["name"],
                         "url": asset["url"],
+                        "repo": repo,
                         "tag": tag,
                     })
         except subprocess.CalledProcessError:
@@ -63,15 +63,20 @@ def get_release_assets(repo: str) -> list[dict]:
     return assets
 
 
-def generate_index(wheels_dir: str | None, output_dir: str,
-                   repo: str = "gounthar/riscv64-python-wheels") -> None:
+def generate_index(wheels_dir: str | None, output_dir: str) -> None:
     packages_file = Path(__file__).parent.parent / "packages.json"
     with open(packages_file) as f:
         config = json.load(f)
 
-    package_names = {normalize_name(p["name"]) for p in config["packages"]}
+    # Build mapping: normalized name -> fork repo
+    package_forks: dict[str, str] = {}
+    for p in config["packages"]:
+        norm = normalize_name(p["name"])
+        package_forks[norm] = p.get("fork", "")
 
-    # Collect wheels from local directory or GitHub releases
+    package_names = set(package_forks.keys())
+
+    # Collect wheels from local directory or GitHub releases across forks
     wheels: dict[str, list[dict]] = {name: [] for name in package_names}
 
     if wheels_dir and os.path.isdir(wheels_dir):
@@ -85,11 +90,20 @@ def generate_index(wheels_dir: str | None, output_dir: str,
                     "sha256": sha,
                 })
     else:
-        for asset in get_release_assets(repo):
+        # Scan releases across all fork repos
+        fork_repos = {r for r in package_forks.values() if r}
+        print(f"Scanning releases in {len(fork_repos)} fork repos...")
+
+        all_assets = []
+        for repo in sorted(fork_repos):
+            print(f"  Checking {repo}...")
+            all_assets.extend(get_release_assets(repo))
+
+        for asset in all_assets:
             name = normalize_name(asset["name"].split("-")[0])
             if name in wheels:
                 download_url = (
-                    f"https://github.com/{repo}/releases/download/"
+                    f"https://github.com/{asset['repo']}/releases/download/"
                     f"{asset['tag']}/{asset['name']}"
                 )
                 wheels[name].append({

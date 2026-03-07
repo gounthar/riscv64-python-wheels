@@ -1,6 +1,12 @@
 name: Update PEP 503 index
 
 on:
+  # Manual trigger
+  workflow_dispatch:
+  # Scheduled: daily at 3 AM UTC (after weekly builds complete)
+  schedule:
+    - cron: '0 3 * * *'
+  # When this repo gets a release (fallback)
   release:
     types: [published]
 
@@ -20,15 +26,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Download release assets info
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release list --json tagName > /tmp/releases.json
-          echo "Releases found:"
-          cat /tmp/releases.json
-
-      - name: Generate PEP 503 index
+      - name: Generate PEP 503 index from fork releases
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
