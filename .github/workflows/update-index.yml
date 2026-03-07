@@ -18,6 +18,10 @@ on:
   repository_dispatch:
     types: [fork-release-published]
 
+concurrency:
+  group: aggregate-release
+  cancel-in-progress: false
+
 jobs:
   aggregate-and-index:
     runs-on: ubuntu-latest
