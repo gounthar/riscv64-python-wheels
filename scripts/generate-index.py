@@ -7,6 +7,7 @@ directory structure suitable for use with pip --extra-index-url.
 """
 
 import hashlib
+import html
 import json
 import os
 import re
@@ -96,12 +97,12 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
 
     if wheels_dir and os.path.isdir(wheels_dir):
         # Local mode: index wheels from a directory (with sha256 integrity)
+        tag = _find_release_tag(central_repo)
         for whl_file in Path(wheels_dir).glob("*.whl"):
             name = normalize_name(whl_file.name.split("-")[0])
             if name in wheels:
                 sha = sha256_file(str(whl_file))
                 # Link to central repo release asset
-                tag = _find_release_tag(central_repo)
                 if tag:
                     url = (
                         f"https://github.com/{central_repo}/"
@@ -151,16 +152,17 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
     for name in sorted(package_names):
         pkg_dir = simple_dir / name
         pkg_dir.mkdir(exist_ok=True)
-        index_links.append(f'    <a href="{name}/">{name}</a>')
+        safe_name = html.escape(name)
+        index_links.append(f'    <a href="{safe_name}/">{safe_name}</a>')
 
         # Package index
         wheel_links = []
         for w in wheels[name]:
-            href = w["url"]
+            href = html.escape(w["url"])
             if w["sha256"]:
                 href += f"#sha256={w['sha256']}"
             wheel_links.append(
-                f'    <a href="{href}">{w["filename"]}</a>'
+                f'    <a href="{href}">{html.escape(w["filename"])}</a>'
             )
 
         pkg_index = (
