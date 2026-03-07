@@ -1,0 +1,94 @@
+name: Build riscv64 wheels
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package name to build'
+        required: true
+        type: choice
+        options:
+          - tokenizers
+          - pydantic-core
+          - safetensors
+          - tiktoken
+          - blake3
+          - sentencepiece
+          - pillow
+  schedule:
+    # Weekly on Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
+
+# NOTE: This workflow requires a self-hosted runner on riscv64 hardware.
+# Set up a GitHub Actions runner on your BananaPi F3 or similar riscv64 board.
+# See: https://docs.github.com/en/actions/hosting-your-own-runners
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, riscv64]
+    timeout-minutes: 240
+
+    env:
+      MAX_JOBS: 4
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python venv
+        run: |
+          python3 -m venv ~/wheels-venv
+          source ~/wheels-venv/bin/activate
+          pip install --upgrade pip
+
+      - name: Determine package
+        id: pkg
+        env:
+          INPUT_PACKAGE: ${{ inputs.package }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "package=${INPUT_PACKAGE}" >> "$GITHUB_OUTPUT"
+          else
+            # On schedule, build all packages
+            echo "package=all" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build wheel(s)
+        env:
+          BUILD_PACKAGE: ${{ steps.pkg.outputs.package }}
+        run: |
+          source ~/wheels-venv/bin/activate
+          if [ "$BUILD_PACKAGE" = "all" ]; then
+            for pkg in tokenizers pydantic-core safetensors tiktoken blake3 sentencepiece pillow; do
+              echo "=== Building $pkg ==="
+              ./scripts/build-from-source.sh "$pkg" || echo "FAILED: $pkg"
+            done
+          else
+            ./scripts/build-from-source.sh "$BUILD_PACKAGE"
+          fi
+
+      - name: Verify platform tags
+        run: |
+          echo "Built wheels:"
+          ls -la ~/wheels/*.whl 2>/dev/null || echo "No wheels found"
+          echo ""
+          echo "Checking platform tags:"
+          for whl in ~/wheels/*.whl; do
+            if [[ "$(basename "$whl")" == *"linux_riscv64"* ]]; then
+              echo "  OK: $(basename "$whl")"
+            else
+              echo "  WARN: $(basename "$whl") - not riscv64"
+            fi
+          done
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: riscv64-wheels-${{ steps.pkg.outputs.package }}
+          path: ~/wheels/*.whl
+          if-no-files-found: error
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf ~/wheels-venv
