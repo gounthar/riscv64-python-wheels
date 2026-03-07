@@ -15,6 +15,14 @@ on:
           - blake3
           - sentencepiece
           - pillow
+          - cffi
+          - cryptography
+          - watchfiles
+          - zstandard
+          - pyyaml
+          - tree-sitter
+          - tree-sitter-bash
+          - textual-speedups
   schedule:
     # Weekly on Sunday at 2 AM UTC
     - cron: '0 2 * * 0'
@@ -45,8 +53,9 @@ jobs:
         id: pkg
         env:
           INPUT_PACKAGE: ${{ inputs.package }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
             echo "package=${INPUT_PACKAGE}" >> "$GITHUB_OUTPUT"
           else
             # On schedule, build all packages
@@ -59,7 +68,7 @@ jobs:
         run: |
           source ~/wheels-venv/bin/activate
           if [ "$BUILD_PACKAGE" = "all" ]; then
-            for pkg in tokenizers pydantic-core safetensors tiktoken blake3 sentencepiece pillow; do
+            for pkg in tokenizers pydantic-core safetensors tiktoken blake3 sentencepiece pillow cffi cryptography watchfiles zstandard pyyaml tree-sitter tree-sitter-bash textual-speedups; do
               echo "=== Building $pkg ==="
               ./scripts/build-from-source.sh "$pkg" || echo "FAILED: $pkg"
             done

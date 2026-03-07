@@ -12,7 +12,9 @@ if [ -z "$PACKAGE" ]; then
     echo ""
     echo "Supported packages:"
     echo "  tokenizers, pydantic-core, safetensors, tiktoken,"
-    echo "  blake3, sentencepiece, pillow"
+    echo "  blake3, sentencepiece, pillow, cffi, cryptography,"
+    echo "  watchfiles, zstandard, pyyaml, tree-sitter,"
+    echo "  tree-sitter-bash, textual-speedups"
     exit 1
 fi
 
@@ -25,6 +27,14 @@ declare -A SUBDIR_MAP=(
     ["blake3"]="."
     ["sentencepiece"]="."
     ["pillow"]="."
+    ["cffi"]="."
+    ["cryptography"]="."
+    ["watchfiles"]="."
+    ["zstandard"]="."
+    ["pyyaml"]="."
+    ["tree-sitter"]="."
+    ["tree-sitter-bash"]="."
+    ["textual-speedups"]="."
 )
 
 # Map packages to their build system
@@ -36,10 +46,38 @@ declare -A BUILD_SYSTEM=(
     ["blake3"]="maturin"
     ["sentencepiece"]="setuptools"
     ["pillow"]="setuptools"
+    ["cffi"]="setuptools"
+    ["cryptography"]="maturin"
+    ["watchfiles"]="maturin"
+    ["zstandard"]="setuptools"
+    ["pyyaml"]="setuptools"
+    ["tree-sitter"]="setuptools"
+    ["tree-sitter-bash"]="setuptools"
+    ["textual-speedups"]="maturin"
+)
+
+# Map package names to fork repository names (when they differ)
+declare -A REPO_MAP=(
+    ["tokenizers"]="tokenizers"
+    ["pydantic-core"]="pydantic-core"
+    ["safetensors"]="safetensors"
+    ["tiktoken"]="tiktoken"
+    ["blake3"]="BLAKE3"
+    ["sentencepiece"]="sentencepiece"
+    ["pillow"]="Pillow"
+    ["cffi"]="cffi"
+    ["cryptography"]="cryptography"
+    ["watchfiles"]="watchfiles"
+    ["zstandard"]="python-zstandard"
+    ["pyyaml"]="pyyaml"
+    ["tree-sitter"]="py-tree-sitter"
+    ["tree-sitter-bash"]="tree-sitter-bash"
+    ["textual-speedups"]="textual"
 )
 
 SUBDIR="${SUBDIR_MAP[$PACKAGE]:-"."}"
 BUILDER="${BUILD_SYSTEM[$PACKAGE]:-"setuptools"}"
+REPO_NAME="${REPO_MAP[$PACKAGE]:-"$PACKAGE"}"
 SRC_DIR="${SRC_BASE}/${PACKAGE}"
 
 if [ ! -d "$SRC_DIR" ]; then
@@ -48,7 +86,7 @@ if [ ! -d "$SRC_DIR" ]; then
     echo "Clone the source first:"
     echo "  mkdir -p $SRC_BASE"
     echo "  cd $SRC_BASE"
-    echo "  git clone https://github.com/OWNER/$PACKAGE.git"
+    echo "  git clone https://github.com/gounthar/${REPO_NAME}.git ${PACKAGE}"
     exit 1
 fi
 
@@ -62,6 +100,7 @@ mkdir -p "$WHEEL_DIR"
 
 echo "Building $PACKAGE from $BUILD_DIR"
 echo "Build system: $BUILDER"
+echo "Fork repo: gounthar/$REPO_NAME"
 echo "Output directory: $WHEEL_DIR"
 echo ""
 
