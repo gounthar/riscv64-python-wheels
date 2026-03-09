@@ -144,6 +144,86 @@
       "lang": "c++",
       "status": "built",
       "notes": "CPU-only build, all accelerators disabled"
+    },
+    {
+      "name": "jiter",
+      "python": "cp313",
+      "source": "pydantic/jiter",
+      "fork": "gounthar/jiter",
+      "lang": "rust",
+      "status": "pending"
+    },
+    {
+      "name": "fastar",
+      "python": "cp313",
+      "source": "DoctorJohn/fastar",
+      "fork": "gounthar/fastar",
+      "lang": "rust",
+      "status": "pending"
+    },
+    {
+      "name": "openai-harmony",
+      "python": "cp313",
+      "source": "openai/harmony",
+      "fork": "gounthar/harmony",
+      "lang": "rust",
+      "status": "pending"
+    },
+    {
+      "name": "rignore",
+      "python": "cp313",
+      "source": "patrick91/rignore",
+      "fork": "gounthar/rignore",
+      "lang": "rust",
+      "status": "pending"
+    },
+    {
+      "name": "httptools",
+      "python": "cp313",
+      "source": "MagicStack/httptools",
+      "fork": "gounthar/httptools",
+      "lang": "c",
+      "status": "pending"
+    },
+    {
+      "name": "uvloop",
+      "python": "cp313",
+      "source": "MagicStack/uvloop",
+      "fork": "gounthar/uvloop",
+      "lang": "c",
+      "status": "pending"
+    },
+    {
+      "name": "ijson",
+      "python": "cp313",
+      "source": "ICRAR/ijson",
+      "fork": "gounthar/ijson",
+      "lang": "c",
+      "status": "pending"
+    },
+    {
+      "name": "msgspec",
+      "python": "cp313",
+      "source": "jcrist/msgspec",
+      "fork": "gounthar/msgspec",
+      "lang": "c",
+      "status": "pending"
+    },
+    {
+      "name": "setproctitle",
+      "python": "cp313",
+      "source": "dvarrazzo/py-setproctitle",
+      "fork": "gounthar/py-setproctitle",
+      "lang": "c",
+      "status": "pending"
+    },
+    {
+      "name": "pyzmq",
+      "python": "cp313",
+      "source": "zeromq/pyzmq",
+      "fork": "gounthar/pyzmq",
+      "lang": "c",
+      "status": "pending"
     }
   ],
   "build_target": {
