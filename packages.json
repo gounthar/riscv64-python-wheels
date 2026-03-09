@@ -143,31 +143,61 @@
       "fork": "gounthar/pytorch",
       "lang": "c++",
       "status": "built",
-      "notes": "CPU-only build, all accelerators disabled"
+      "notes": "CPU-only build, rebuilding with USE_DISTRIBUTED=1"
     },
     {
       "name": "jiter",
+      "version": "0.13.0",
       "python": "cp313",
       "source": "pydantic/jiter",
       "fork": "gounthar/jiter",
       "lang": "rust",
-      "status": "pending"
+      "status": "built"
     },
     {
       "name": "fastar",
+      "version": "0.8.0",
       "python": "cp313",
       "source": "DoctorJohn/fastar",
       "fork": "gounthar/fastar",
       "lang": "rust",
-      "status": "pending"
+      "status": "built"
     },
     {
       "name": "openai-harmony",
+      "version": "0.0.8",
       "python": "cp313",
       "source": "openai/harmony",
       "fork": "gounthar/harmony",
       "lang": "rust",
-      "status": "pending"
+      "status": "built"
+    },
+    {
+      "name": "httptools",
+      "version": "0.8.0.dev0",
+      "python": "cp313",
+      "source": "MagicStack/httptools",
+      "fork": "gounthar/httptools",
+      "lang": "c",
+      "status": "built"
+    },
+    {
+      "name": "msgspec",
+      "version": "0.20.1.dev3",
+      "python": "cp313",
+      "source": "jcrist/msgspec",
+      "fork": "gounthar/msgspec",
+      "lang": "c",
+      "status": "built"
+    },
+    {
+      "name": "pyzmq",
+      "version": "27.2.0.dev0",
+      "python": "cp313",
+      "source": "zeromq/pyzmq",
+      "fork": "gounthar/pyzmq",
+      "lang": "c",
+      "status": "built"
     },
     {
       "name": "rignore",
@@ -175,15 +205,7 @@
       "source": "patrick91/rignore",
       "fork": "gounthar/rignore",
       "lang": "rust",
-      "status": "pending"
-    },
-    {
-      "name": "httptools",
-      "python": "cp313",
-      "source": "MagicStack/httptools",
-      "fork": "gounthar/httptools",
-      "lang": "c",
-      "status": "pending"
+      "status": "building"
     },
     {
       "name": "uvloop",
@@ -191,23 +213,7 @@
       "source": "MagicStack/uvloop",
       "fork": "gounthar/uvloop",
       "lang": "c",
-      "status": "pending"
-    },
-    {
-      "name": "ijson",
-      "python": "cp313",
-      "source": "ICRAR/ijson",
-      "fork": "gounthar/ijson",
-      "lang": "c",
-      "status": "pending"
-    },
-    {
-      "name": "msgspec",
-      "python": "cp313",
-      "source": "jcrist/msgspec",
-      "fork": "gounthar/msgspec",
-      "lang": "c",
-      "status": "pending"
+      "status": "building"
     },
     {
       "name": "setproctitle",
@@ -215,15 +221,16 @@
       "source": "dvarrazzo/py-setproctitle",
       "fork": "gounthar/py-setproctitle",
       "lang": "c",
-      "status": "pending"
+      "status": "building"
     },
     {
-      "name": "pyzmq",
-      "python": "cp313",
-      "source": "zeromq/pyzmq",
-      "fork": "gounthar/pyzmq",
+      "name": "ijson",
+      "python": "py3",
+      "source": "ICRAR/ijson",
+      "fork": "gounthar/ijson",
       "lang": "c",
-      "status": "pending"
+      "status": "not-needed",
+      "notes": "Pure Python wheel (py3-none-any) available on PyPI"
     }
   ],
   "build_target": {
