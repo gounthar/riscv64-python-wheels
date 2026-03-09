@@ -77,7 +77,8 @@ def _find_release_tag(repo: str) -> str:
         return ""
 
 
-def generate_index(wheels_dir: str | None, output_dir: str) -> None:
+def generate_index(wheels_dir: str | None, output_dir: str,
+                   release_tag: str = "") -> None:
     packages_file = Path(__file__).parent.parent / "packages.json"
     with open(packages_file) as f:
         config = json.load(f)
@@ -97,19 +98,21 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
 
     if wheels_dir and os.path.isdir(wheels_dir):
         # Local mode: index wheels from a directory (with sha256 integrity)
-        tag = _find_release_tag(central_repo)
+        tag = release_tag or _find_release_tag(central_repo)
+        if not tag:
+            print("WARNING: No release tag found. Trying date-based tag...")
+            import datetime
+            tag = f"v{datetime.date.today().strftime('%Y.%m.%d')}-cp313"
+        print(f"Using release tag: {tag}")
         for whl_file in Path(wheels_dir).glob("*.whl"):
             name = normalize_name(whl_file.name.split("-")[0])
             if name in wheels:
                 sha = sha256_file(str(whl_file))
                 # Link to central repo release asset
-                if tag:
-                    url = (
-                        f"https://github.com/{central_repo}/"
-                        f"releases/download/{tag}/{whl_file.name}"
-                    )
-                else:
-                    url = whl_file.name
+                url = (
+                    f"https://github.com/{central_repo}/"
+                    f"releases/download/{tag}/{whl_file.name}"
+                )
                 wheels[name].append({
                     "filename": whl_file.name,
                     "url": url,
@@ -187,4 +190,5 @@ def generate_index(wheels_dir: str | None, output_dir: str) -> None:
 if __name__ == "__main__":
     local_dir = sys.argv[1] if len(sys.argv) > 1 else None
     out_dir = sys.argv[2] if len(sys.argv) > 2 else "."
-    generate_index(local_dir, out_dir)
+    tag_override = sys.argv[3] if len(sys.argv) > 3 else ""
+    generate_index(local_dir, out_dir, tag_override)
