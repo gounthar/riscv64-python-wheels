@@ -43,8 +43,20 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash scripts/aggregate-wheels.sh
 
+      - name: Determine release tag
+        id: tag
+        run: |
+          TAG=$(gh release list --repo gounthar/riscv64-python-wheels --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || echo "")
+          if [ -z "$TAG" ]; then
+            TAG="v$(date -u +%Y.%m.%d)-cp313"
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Using release tag: $TAG"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Generate PEP 503 index from downloaded wheels
-        run: python scripts/generate-index.py wheels .
+        run: python scripts/generate-index.py wheels . "${{ steps.tag.outputs.tag }}"
 
       - name: Deploy index to gh-pages
         uses: peaceiris/actions-gh-pages@v4
