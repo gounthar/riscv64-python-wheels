@@ -205,7 +205,8 @@
       "source": "patrick91/rignore",
       "fork": "gounthar/rignore",
       "lang": "rust",
-      "status": "building"
+      "status": "built",
+      "version": "0.7.6"
     },
     {
       "name": "uvloop",
@@ -221,7 +222,8 @@
       "source": "dvarrazzo/py-setproctitle",
       "fork": "gounthar/py-setproctitle",
       "lang": "c",
-      "status": "building"
+      "status": "built",
+      "version": "1.3.7"
     },
     {
       "name": "ijson",
