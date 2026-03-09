@@ -134,6 +134,16 @@
       "fork": "gounthar/Pillow",
       "lang": "c",
       "status": "built"
+    },
+    {
+      "name": "torch",
+      "version": "2.10.0",
+      "python": "cp313",
+      "source": "pytorch/pytorch",
+      "fork": "gounthar/pytorch",
+      "lang": "c++",
+      "status": "built",
+      "notes": "CPU-only build, all accelerators disabled"
     }
   ],
   "build_target": {
