@@ -174,7 +174,7 @@
     },
     {
       "name": "httptools",
-      "version": "0.8.0.dev0",
+      "version": "0.7.1",
       "python": "cp313",
       "source": "MagicStack/httptools",
       "fork": "gounthar/httptools",
@@ -183,7 +183,7 @@
     },
     {
       "name": "msgspec",
-      "version": "0.20.1.dev3",
+      "version": "0.20.0",
       "python": "cp313",
       "source": "jcrist/msgspec",
       "fork": "gounthar/msgspec",
@@ -192,7 +192,7 @@
     },
     {
       "name": "pyzmq",
-      "version": "27.2.0.dev0",
+      "version": "27.1.0",
       "python": "cp313",
       "source": "zeromq/pyzmq",
       "fork": "gounthar/pyzmq",
@@ -214,7 +214,8 @@
       "source": "MagicStack/uvloop",
       "fork": "gounthar/uvloop",
       "lang": "c",
-      "status": "building"
+      "status": "building",
+      "version": "0.22.1"
     },
     {
       "name": "setproctitle",
@@ -232,7 +233,8 @@
       "fork": "gounthar/ijson",
       "lang": "c",
       "status": "not-needed",
-      "notes": "Pure Python wheel (py3-none-any) available on PyPI"
+      "notes": "Pure Python wheel (py3-none-any) available on PyPI",
+      "version": "3.5.0"
     }
   ],
   "build_target": {
