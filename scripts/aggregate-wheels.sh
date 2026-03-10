@@ -81,12 +81,21 @@ for i in $(seq 0 $((PACKAGE_COUNT - 1))); do
                 continue
             fi
 
-            # Skip if we already have this exact wheel
+            # Check if we already have a wheel with this name
             if [ -f "$WHEELS_DIR/$asset_name" ]; then
-                continue
+                # Compare sizes: fork's version wins if different (rebuilt wheel)
+                FORK_SIZE=$(gh release view "$tag" --repo "$fork" --json assets \
+                    --jq ".assets[] | select(.name == \"$asset_name\") | .size" 2>/dev/null || echo "0")
+                LOCAL_SIZE=$(stat -c%s "$WHEELS_DIR/$asset_name" 2>/dev/null || echo "0")
+                if [ "$FORK_SIZE" = "$LOCAL_SIZE" ]; then
+                    continue
+                fi
+                echo ""
+                printf "    %-20s  size changed (%s -> %s), replacing\n" "$asset_name" "$LOCAL_SIZE" "$FORK_SIZE"
+                rm -f "$WHEELS_DIR/$asset_name"
             fi
 
-            # Download the new wheel
+            # Download the wheel from fork
             gh release download "$tag" --repo "$fork" --dir "$WHEELS_DIR" --pattern "$asset_name" 2>/dev/null || true
 
             if [ -f "$WHEELS_DIR/$asset_name" ]; then
