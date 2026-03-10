@@ -143,7 +143,7 @@
       "fork": "gounthar/pytorch",
       "lang": "c++",
       "status": "built",
-      "notes": "CPU-only build, rebuilding with USE_DISTRIBUTED=1"
+      "notes": "CPU-only, USE_DISTRIBUTED=1, USE_GLOO=1"
     },
     {
       "name": "jiter",
@@ -214,7 +214,7 @@
       "source": "MagicStack/uvloop",
       "fork": "gounthar/uvloop",
       "lang": "c",
-      "status": "building",
+      "status": "built",
       "version": "0.22.1"
     },
     {
