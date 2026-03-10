@@ -14,7 +14,8 @@ if [ -z "$PACKAGE" ]; then
     echo "  tokenizers, pydantic-core, safetensors, tiktoken,"
     echo "  blake3, sentencepiece, pillow, cffi, cryptography,"
     echo "  watchfiles, zstandard, pyyaml, tree-sitter,"
-    echo "  tree-sitter-bash, textual-speedups"
+    echo "  tree-sitter-bash, textual-speedups, numpy, grpcio,"
+    echo "  orjson, multidict, frozenlist, propcache"
     exit 1
 fi
 
@@ -35,6 +36,12 @@ declare -A SUBDIR_MAP=(
     ["tree-sitter"]="."
     ["tree-sitter-bash"]="."
     ["textual-speedups"]="."
+    ["numpy"]="."
+    ["grpcio"]="src/python/grpcio"
+    ["orjson"]="."
+    ["multidict"]="."
+    ["frozenlist"]="."
+    ["propcache"]="."
 )
 
 # Map packages to their build system
@@ -54,6 +61,12 @@ declare -A BUILD_SYSTEM=(
     ["tree-sitter"]="setuptools"
     ["tree-sitter-bash"]="setuptools"
     ["textual-speedups"]="maturin"
+    ["numpy"]="meson"
+    ["grpcio"]="setuptools"
+    ["orjson"]="maturin"
+    ["multidict"]="setuptools"
+    ["frozenlist"]="setuptools"
+    ["propcache"]="setuptools"
 )
 
 # Map package names to fork repository names (when they differ)
@@ -73,6 +86,12 @@ declare -A REPO_MAP=(
     ["tree-sitter"]="py-tree-sitter"
     ["tree-sitter-bash"]="tree-sitter-bash"
     ["textual-speedups"]="textual"
+    ["numpy"]="numpy"
+    ["grpcio"]="grpc"
+    ["orjson"]="orjson"
+    ["multidict"]="multidict"
+    ["frozenlist"]="frozenlist"
+    ["propcache"]="propcache"
 )
 
 SUBDIR="${SUBDIR_MAP[$PACKAGE]:-"."}"
@@ -111,11 +130,17 @@ python3 -m venv "$VENV_DIR"
 source "$VENV_DIR/bin/activate"
 
 # Install build dependencies
-if [ "$BUILDER" = "maturin" ]; then
-    pip install --quiet maturin
-else
-    pip install --quiet setuptools wheel build
-fi
+case "$BUILDER" in
+    maturin)
+        pip install --quiet maturin
+        ;;
+    meson)
+        pip install --quiet meson-python meson ninja cython numpy setuptools wheel build
+        ;;
+    *)
+        pip install --quiet setuptools wheel build
+        ;;
+esac
 
 # Build the wheel
 cd "$BUILD_DIR"
