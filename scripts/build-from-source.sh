@@ -135,7 +135,7 @@ case "$BUILDER" in
         pip install --quiet maturin
         ;;
     meson)
-        pip install --quiet meson-python meson ninja cython numpy setuptools wheel build
+        pip install --quiet meson-python meson ninja cython setuptools wheel build
         ;;
     *)
         pip install --quiet setuptools wheel build
