@@ -52,6 +52,7 @@ echo ""
 echo "Scanning fork repos for new wheels..."
 PACKAGE_COUNT=$(jq '.packages | length' "$PACKAGES_FILE")
 NEW_WHEELS=0
+REPLACED_WHEELS=0
 
 for i in $(seq 0 $((PACKAGE_COUNT - 1))); do
     name=$(jq -r ".packages[$i].name" "$PACKAGES_FILE")
@@ -73,26 +74,25 @@ for i in $(seq 0 $((PACKAGE_COUNT - 1))); do
 
     FOUND=0
     for tag in $FORK_RELEASES; do
-        # Get wheel assets from this release
-        ASSETS=$(gh release view "$tag" --repo "$fork" --json assets --jq '.assets[] | select(.name | endswith(".whl")) | .name' 2>/dev/null || echo "")
+        # Get wheel asset names and sizes in a single API call
+        ASSET_DATA=$(gh release view "$tag" --repo "$fork" --json assets \
+            --jq '.assets[] | select(.name | endswith(".whl")) | "\(.name)\t\(.size)"' 2>/dev/null || echo "")
 
-        for asset_name in $ASSETS; do
+        while IFS=$'\t' read -r asset_name fork_size; do
             if [ -z "$asset_name" ]; then
                 continue
             fi
 
             # Check if we already have a wheel with this name
             if [ -f "$WHEELS_DIR/$asset_name" ]; then
-                # Compare sizes: fork's version wins if different (rebuilt wheel)
-                FORK_SIZE=$(gh release view "$tag" --repo "$fork" --json assets \
-                    --jq ".assets[] | select(.name == \"$asset_name\") | .size" 2>/dev/null || echo "0")
                 LOCAL_SIZE=$(stat -c%s "$WHEELS_DIR/$asset_name" 2>/dev/null || echo "0")
-                if [ "$FORK_SIZE" = "$LOCAL_SIZE" ]; then
+                if [ "$fork_size" = "$LOCAL_SIZE" ]; then
                     continue
                 fi
                 echo ""
-                printf "    %-20s  size changed (%s -> %s), replacing\n" "$asset_name" "$LOCAL_SIZE" "$FORK_SIZE"
+                printf "    %-20s  size changed (%s -> %s), replacing\n" "$asset_name" "$LOCAL_SIZE" "$fork_size"
                 rm -f "$WHEELS_DIR/$asset_name"
+                REPLACED_WHEELS=$((REPLACED_WHEELS + 1))
             fi
 
             # Download the wheel from fork
@@ -102,7 +102,7 @@ for i in $(seq 0 $((PACKAGE_COUNT - 1))); do
                 FOUND=$((FOUND + 1))
                 NEW_WHEELS=$((NEW_WHEELS + 1))
             fi
-        done
+        done <<< "$ASSET_DATA"
     done
 
     if [ "$FOUND" -gt 0 ]; then
@@ -116,7 +116,11 @@ echo ""
 
 # Count total wheels
 TOTAL=$(find "$WHEELS_DIR" -name "*.whl" 2>/dev/null | wc -l)
-echo "Total wheels: $TOTAL ($NEW_WHEELS new)"
+if [ "$REPLACED_WHEELS" -gt 0 ]; then
+    echo "Total wheels: $TOTAL ($NEW_WHEELS new, $REPLACED_WHEELS replaced)"
+else
+    echo "Total wheels: $TOTAL ($NEW_WHEELS new)"
+fi
 
 if [ "$TOTAL" -eq 0 ]; then
     echo "No wheels found. Nothing to release."
