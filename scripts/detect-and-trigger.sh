@@ -51,6 +51,18 @@ for i in $(seq 0 $((PACKAGE_COUNT - 1))); do
     name=$(jq -r ".packages[$i].name" "$PACKAGES_FILE")
     current_version=$(jq -r ".packages[$i].version" "$PACKAGES_FILE")
     fork=$(jq -r ".packages[$i].fork" "$PACKAGES_FILE")
+    status=$(jq -r ".packages[$i].status" "$PACKAGES_FILE")
+
+    # Skip packages that aren't built yet
+    if [ "$status" = "pending" ]; then
+        printf "  %-20s  SKIPPED (status: pending)\n" "$name"
+        continue
+    fi
+
+    if [ -z "$fork" ] || [ "$fork" = "null" ]; then
+        printf "  %-20s  SKIPPED (no fork configured)\n" "$name"
+        continue
+    fi
 
     # Query PyPI for latest version
     pypi_data=$(curl -s "https://pypi.org/pypi/${name}/json" 2>/dev/null || echo "")
