@@ -236,6 +236,66 @@
       "status": "not-needed",
       "notes": "Pure Python wheel (py3-none-any) available on PyPI",
       "version": "3.5.0"
+    },
+    {
+      "name": "numpy",
+      "version": "2.4.3",
+      "python": "cp313",
+      "source": "numpy/numpy",
+      "fork": "gounthar/numpy",
+      "lang": "c+fortran",
+      "status": "pending",
+      "notes": "Transitive dep of torch, most fundamental scientific Python package. No riscv64 wheel on PyPI."
+    },
+    {
+      "name": "grpcio",
+      "version": "1.78.0",
+      "python": "cp313",
+      "source": "grpc/grpc",
+      "fork": "gounthar/grpc",
+      "lang": "c",
+      "status": "pending",
+      "notes": "vLLM gRPC serving. 20-30 min compile from source. No riscv64 wheel on PyPI."
+    },
+    {
+      "name": "orjson",
+      "version": "3.11.7",
+      "python": "cp313",
+      "source": "ijl/orjson",
+      "fork": "gounthar/orjson",
+      "lang": "rust",
+      "status": "pending",
+      "notes": "Fast JSON for FastAPI. No riscv64 wheel on PyPI."
+    },
+    {
+      "name": "multidict",
+      "version": "6.7.1",
+      "python": "cp313",
+      "source": "aio-libs/multidict",
+      "fork": "gounthar/multidict",
+      "lang": "c",
+      "status": "pending",
+      "notes": "aiohttp transitive dep. No riscv64 wheel on PyPI."
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "python": "cp313",
+      "source": "aio-libs/frozenlist",
+      "fork": "gounthar/frozenlist",
+      "lang": "c",
+      "status": "pending",
+      "notes": "aiohttp transitive dep. No riscv64 wheel on PyPI."
+    },
+    {
+      "name": "propcache",
+      "version": "0.4.1",
+      "python": "cp313",
+      "source": "aio-libs/propcache",
+      "fork": "gounthar/propcache",
+      "lang": "c",
+      "status": "pending",
+      "notes": "aiohttp/yarl transitive dep. No riscv64 wheel on PyPI."
     }
   ],
   "build_target": {
