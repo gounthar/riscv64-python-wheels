@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "pydantic-core",
-      "version": "2.41.5",
+      "version": "2.42.0",
       "python": "cp313",
       "source": "pydantic/pydantic-core",
       "fork": "gounthar/pydantic-core",
@@ -11,7 +11,7 @@
     },
     {
       "name": "tokenizers",
-      "version": "0.22.3.dev0",
+      "version": "0.22.2",
       "python": "cp39-abi3",
       "source": "huggingface/tokenizers",
       "fork": "gounthar/tokenizers",
@@ -20,7 +20,7 @@
     },
     {
       "name": "sentencepiece",
-      "version": "0.2.2",
+      "version": "0.2.1",
       "python": "cp313",
       "source": "google/sentencepiece",
       "fork": "gounthar/sentencepiece",
@@ -29,7 +29,7 @@
     },
     {
       "name": "cffi",
-      "version": "2.0.1.dev0",
+      "version": "2.0.0",
       "python": "cp313",
       "source": "python-cffi/cffi",
       "fork": "gounthar/cffi",
@@ -65,7 +65,7 @@
     },
     {
       "name": "pyyaml",
-      "version": "7.0.0.dev0",
+      "version": "6.0.3",
       "python": "cp313",
       "source": "yaml/pyyaml",
       "fork": "gounthar/pyyaml",
@@ -129,7 +129,7 @@
     },
     {
       "name": "pillow",
-      "version": "12.2.0.dev0",
+      "version": "12.1.1",
       "python": "cp313",
       "source": "python-pillow/Pillow",
       "fork": "gounthar/Pillow",
@@ -175,7 +175,7 @@
     },
     {
       "name": "httptools",
-      "version": "0.8.0.dev0",
+      "version": "0.7.1",
       "python": "cp313",
       "source": "MagicStack/httptools",
       "fork": "gounthar/httptools",
@@ -184,7 +184,7 @@
     },
     {
       "name": "msgspec",
-      "version": "0.20.1.dev3+gf225b8fb3",
+      "version": "0.20.0",
       "python": "cp313",
       "source": "jcrist/msgspec",
       "fork": "gounthar/msgspec",
@@ -193,7 +193,7 @@
     },
     {
       "name": "pyzmq",
-      "version": "27.2.0.dev0",
+      "version": "27.1.0",
       "python": "cp313",
       "source": "zeromq/pyzmq",
       "fork": "gounthar/pyzmq",
