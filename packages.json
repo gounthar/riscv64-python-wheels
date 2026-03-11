@@ -306,6 +306,16 @@
       "lang": "rust",
       "status": "pending",
       "notes": "Fast large file transfers for HuggingFace Hub. Rust + maturin, builds ~60 min on F3."
+    },
+    {
+      "name": "llama-cpp-python",
+      "version": "0.3.16",
+      "python": "cp313",
+      "source": "abetlen/llama-cpp-python",
+      "fork": "gounthar/llama-cpp-python",
+      "lang": "c++",
+      "status": "pending",
+      "notes": "Python bindings for llama.cpp. Builds with GGML_NATIVE=ON for RVV support. ~20 min on F3."
     }
   ],
   "build_target": {
