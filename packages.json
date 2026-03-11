@@ -95,10 +95,10 @@
             "version": "0.2.1",
             "python": "cp313",
             "source": "willmcgugan/textual-speedups",
-            "fork": "gounthar/textual",
+            "fork": "gounthar/textual-speedups",
             "lang": "rust",
             "status": "built",
-            "notes": "gounthar/textual fork is wrong repo; wheel built manually"
+            "notes": "Correct fork (was gounthar/textual, wrong repo)"
         },
         {
             "name": "safetensors",
