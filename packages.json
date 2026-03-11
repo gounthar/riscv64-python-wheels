@@ -1,327 +1,327 @@
 {
-  "packages": [
-    {
-      "name": "pydantic-core",
-      "version": "2.42.0",
-      "python": "cp313",
-      "source": "pydantic/pydantic-core",
-      "fork": "gounthar/pydantic-core",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "tokenizers",
-      "version": "0.22.2",
-      "python": "cp39-abi3",
-      "source": "huggingface/tokenizers",
-      "fork": "gounthar/tokenizers",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "sentencepiece",
-      "version": "0.2.1",
-      "python": "cp313",
-      "source": "google/sentencepiece",
-      "fork": "gounthar/sentencepiece",
-      "lang": "c++",
-      "status": "built"
-    },
-    {
-      "name": "cffi",
-      "version": "2.0.0",
-      "python": "cp313",
-      "source": "python-cffi/cffi",
-      "fork": "gounthar/cffi",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "cryptography",
-      "version": "46.0.5",
-      "python": "cp313-abi3",
-      "source": "pyca/cryptography",
-      "fork": "gounthar/cryptography",
-      "lang": "rust+c",
-      "status": "built"
-    },
-    {
-      "name": "watchfiles",
-      "version": "1.1.1",
-      "python": "cp313",
-      "source": "samuelcolvin/watchfiles",
-      "fork": "gounthar/watchfiles",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "zstandard",
-      "version": "0.25.0",
-      "python": "cp313",
-      "source": "indygreg/python-zstandard",
-      "fork": "gounthar/python-zstandard",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "pyyaml",
-      "version": "6.0.3",
-      "python": "cp313",
-      "source": "yaml/pyyaml",
-      "fork": "gounthar/pyyaml",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "tree-sitter",
-      "version": "0.25.2",
-      "python": "cp313",
-      "source": "tree-sitter/py-tree-sitter",
-      "fork": "gounthar/py-tree-sitter",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "tree-sitter-bash",
-      "version": "0.25.1",
-      "python": "cp310-abi3",
-      "source": "tree-sitter/tree-sitter-bash",
-      "fork": "gounthar/tree-sitter-bash",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "textual-speedups",
-      "version": "0.2.1",
-      "python": "cp313",
-      "source": "willmcgugan/textual-speedups",
-      "fork": "gounthar/textual",
-      "lang": "rust",
-      "status": "built",
-      "notes": "gounthar/textual fork is wrong repo; wheel built manually"
-    },
-    {
-      "name": "safetensors",
-      "version": "0.7.0",
-      "python": "cp38-abi3",
-      "source": "huggingface/safetensors",
-      "fork": "gounthar/safetensors",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "tiktoken",
-      "version": "0.12.0",
-      "python": "cp313",
-      "source": "openai/tiktoken",
-      "fork": "gounthar/tiktoken",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "blake3",
-      "version": "1.0.8",
-      "python": "cp313",
-      "source": "oconnor663/blake3-py",
-      "fork": "gounthar/blake3-py",
-      "lang": "rust+c",
-      "status": "built"
-    },
-    {
-      "name": "pillow",
-      "version": "12.1.1",
-      "python": "cp313",
-      "source": "python-pillow/Pillow",
-      "fork": "gounthar/Pillow",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "torch",
-      "version": "2.10.0",
-      "python": "cp313",
-      "source": "pytorch/pytorch",
-      "fork": "gounthar/pytorch",
-      "lang": "c++",
-      "status": "built",
-      "notes": "CPU-only, USE_DISTRIBUTED=1, USE_GLOO=1"
-    },
-    {
-      "name": "jiter",
-      "version": "0.13.0",
-      "python": "cp313",
-      "source": "pydantic/jiter",
-      "fork": "gounthar/jiter",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "fastar",
-      "version": "0.8.0",
-      "python": "cp313",
-      "source": "DoctorJohn/fastar",
-      "fork": "gounthar/fastar",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "openai-harmony",
-      "version": "0.0.8",
-      "python": "cp313",
-      "source": "openai/harmony",
-      "fork": "gounthar/harmony",
-      "lang": "rust",
-      "status": "built"
-    },
-    {
-      "name": "httptools",
-      "version": "0.7.1",
-      "python": "cp313",
-      "source": "MagicStack/httptools",
-      "fork": "gounthar/httptools",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "msgspec",
-      "version": "0.20.0",
-      "python": "cp313",
-      "source": "jcrist/msgspec",
-      "fork": "gounthar/msgspec",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "pyzmq",
-      "version": "27.1.0",
-      "python": "cp313",
-      "source": "zeromq/pyzmq",
-      "fork": "gounthar/pyzmq",
-      "lang": "c",
-      "status": "built"
-    },
-    {
-      "name": "rignore",
-      "python": "cp313",
-      "source": "patrick91/rignore",
-      "fork": "gounthar/rignore",
-      "lang": "rust",
-      "status": "built",
-      "version": "0.7.6"
-    },
-    {
-      "name": "uvloop",
-      "python": "cp313",
-      "source": "MagicStack/uvloop",
-      "fork": "gounthar/uvloop",
-      "lang": "c",
-      "status": "built",
-      "version": "0.22.1"
-    },
-    {
-      "name": "setproctitle",
-      "python": "cp313",
-      "source": "dvarrazzo/py-setproctitle",
-      "fork": "gounthar/py-setproctitle",
-      "lang": "c",
-      "status": "built",
-      "version": "1.3.7"
-    },
-    {
-      "name": "ijson",
-      "python": "py3",
-      "source": "ICRAR/ijson",
-      "fork": "gounthar/ijson",
-      "lang": "c",
-      "status": "not-needed",
-      "notes": "Pure Python wheel (py3-none-any) available on PyPI",
-      "version": "3.5.0"
-    },
-    {
-      "name": "numpy",
-      "version": "2.4.3",
-      "python": "cp313",
-      "source": "numpy/numpy",
-      "fork": "gounthar/numpy",
-      "lang": "c+fortran",
-      "status": "pending",
-      "notes": "Transitive dep of torch, most fundamental scientific Python package. No riscv64 wheel on PyPI."
-    },
-    {
-      "name": "grpcio",
-      "version": "1.78.0",
-      "python": "cp313",
-      "source": "grpc/grpc",
-      "fork": "gounthar/grpc",
-      "lang": "c",
-      "status": "pending",
-      "notes": "vLLM gRPC serving. 20-30 min compile from source. No riscv64 wheel on PyPI."
-    },
-    {
-      "name": "orjson",
-      "version": "3.11.7",
-      "python": "cp313",
-      "source": "ijl/orjson",
-      "fork": "gounthar/orjson",
-      "lang": "rust",
-      "status": "pending",
-      "notes": "Fast JSON for FastAPI. No riscv64 wheel on PyPI."
-    },
-    {
-      "name": "multidict",
-      "version": "6.7.1",
-      "python": "cp313",
-      "source": "aio-libs/multidict",
-      "fork": "gounthar/multidict",
-      "lang": "c",
-      "status": "pending",
-      "notes": "aiohttp transitive dep. No riscv64 wheel on PyPI."
-    },
-    {
-      "name": "frozenlist",
-      "version": "1.8.0",
-      "python": "cp313",
-      "source": "aio-libs/frozenlist",
-      "fork": "gounthar/frozenlist",
-      "lang": "c",
-      "status": "pending",
-      "notes": "aiohttp transitive dep. No riscv64 wheel on PyPI."
-    },
-    {
-      "name": "propcache",
-      "version": "0.4.1",
-      "python": "cp313",
-      "source": "aio-libs/propcache",
-      "fork": "gounthar/propcache",
-      "lang": "c",
-      "status": "pending",
-      "notes": "aiohttp/yarl transitive dep. No riscv64 wheel on PyPI."
-    },
-    {
-      "name": "hf-xet",
-      "version": "1.3.2",
-      "python": "cp313",
-      "source": "huggingface/xet-core",
-      "fork": "gounthar/xet-core",
-      "lang": "rust",
-      "status": "pending",
-      "notes": "Fast large file transfers for HuggingFace Hub. Rust + maturin, builds ~60 min on F3."
-    },
-    {
-      "name": "llama-cpp-python",
-      "version": "0.3.16",
-      "python": "cp313",
-      "source": "abetlen/llama-cpp-python",
-      "fork": "gounthar/llama-cpp-python",
-      "lang": "c++",
-      "status": "pending",
-      "notes": "Python bindings for llama.cpp. Builds with GGML_NATIVE=ON for RVV support. ~20 min on F3."
+    "packages": [
+        {
+            "name": "pydantic-core",
+            "version": "2.42.0",
+            "python": "cp313",
+            "source": "pydantic/pydantic-core",
+            "fork": "gounthar/pydantic-core",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "tokenizers",
+            "version": "0.22.2",
+            "python": "cp39-abi3",
+            "source": "huggingface/tokenizers",
+            "fork": "gounthar/tokenizers",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "sentencepiece",
+            "version": "0.2.1",
+            "python": "cp313",
+            "source": "google/sentencepiece",
+            "fork": "gounthar/sentencepiece",
+            "lang": "c++",
+            "status": "built"
+        },
+        {
+            "name": "cffi",
+            "version": "2.0.0",
+            "python": "cp313",
+            "source": "python-cffi/cffi",
+            "fork": "gounthar/cffi",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "cryptography",
+            "version": "46.0.5",
+            "python": "cp313-abi3",
+            "source": "pyca/cryptography",
+            "fork": "gounthar/cryptography",
+            "lang": "rust+c",
+            "status": "built"
+        },
+        {
+            "name": "watchfiles",
+            "version": "1.1.1",
+            "python": "cp313",
+            "source": "samuelcolvin/watchfiles",
+            "fork": "gounthar/watchfiles",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "zstandard",
+            "version": "0.25.0",
+            "python": "cp313",
+            "source": "indygreg/python-zstandard",
+            "fork": "gounthar/python-zstandard",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "pyyaml",
+            "version": "6.0.3",
+            "python": "cp313",
+            "source": "yaml/pyyaml",
+            "fork": "gounthar/pyyaml",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "tree-sitter",
+            "version": "0.25.2",
+            "python": "cp313",
+            "source": "tree-sitter/py-tree-sitter",
+            "fork": "gounthar/py-tree-sitter",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "tree-sitter-bash",
+            "version": "0.25.1",
+            "python": "cp310-abi3",
+            "source": "tree-sitter/tree-sitter-bash",
+            "fork": "gounthar/tree-sitter-bash",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "textual-speedups",
+            "version": "0.2.1",
+            "python": "cp313",
+            "source": "willmcgugan/textual-speedups",
+            "fork": "gounthar/textual",
+            "lang": "rust",
+            "status": "built",
+            "notes": "gounthar/textual fork is wrong repo; wheel built manually"
+        },
+        {
+            "name": "safetensors",
+            "version": "0.7.0",
+            "python": "cp38-abi3",
+            "source": "huggingface/safetensors",
+            "fork": "gounthar/safetensors",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "tiktoken",
+            "version": "0.12.0",
+            "python": "cp313",
+            "source": "openai/tiktoken",
+            "fork": "gounthar/tiktoken",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "blake3",
+            "version": "1.0.8",
+            "python": "cp313",
+            "source": "oconnor663/blake3-py",
+            "fork": "gounthar/blake3-py",
+            "lang": "rust+c",
+            "status": "built"
+        },
+        {
+            "name": "pillow",
+            "version": "12.1.1",
+            "python": "cp313",
+            "source": "python-pillow/Pillow",
+            "fork": "gounthar/Pillow",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "torch",
+            "version": "2.10.0",
+            "python": "cp313",
+            "source": "pytorch/pytorch",
+            "fork": "gounthar/pytorch",
+            "lang": "c++",
+            "status": "built",
+            "notes": "CPU-only, USE_DISTRIBUTED=1, USE_GLOO=1"
+        },
+        {
+            "name": "jiter",
+            "version": "0.13.0",
+            "python": "cp313",
+            "source": "pydantic/jiter",
+            "fork": "gounthar/jiter",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "fastar",
+            "version": "0.8.0",
+            "python": "cp313",
+            "source": "DoctorJohn/fastar",
+            "fork": "gounthar/fastar",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "openai-harmony",
+            "version": "0.0.8",
+            "python": "cp313",
+            "source": "openai/harmony",
+            "fork": "gounthar/harmony",
+            "lang": "rust",
+            "status": "built"
+        },
+        {
+            "name": "httptools",
+            "version": "0.7.1",
+            "python": "cp313",
+            "source": "MagicStack/httptools",
+            "fork": "gounthar/httptools",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "msgspec",
+            "version": "0.20.0",
+            "python": "cp313",
+            "source": "jcrist/msgspec",
+            "fork": "gounthar/msgspec",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "pyzmq",
+            "version": "27.1.0",
+            "python": "cp313",
+            "source": "zeromq/pyzmq",
+            "fork": "gounthar/pyzmq",
+            "lang": "c",
+            "status": "built"
+        },
+        {
+            "name": "rignore",
+            "python": "cp313",
+            "source": "patrick91/rignore",
+            "fork": "gounthar/rignore",
+            "lang": "rust",
+            "status": "built",
+            "version": "0.7.6"
+        },
+        {
+            "name": "uvloop",
+            "python": "cp313",
+            "source": "MagicStack/uvloop",
+            "fork": "gounthar/uvloop",
+            "lang": "c",
+            "status": "built",
+            "version": "0.22.1"
+        },
+        {
+            "name": "setproctitle",
+            "python": "cp313",
+            "source": "dvarrazzo/py-setproctitle",
+            "fork": "gounthar/py-setproctitle",
+            "lang": "c",
+            "status": "built",
+            "version": "1.3.7"
+        },
+        {
+            "name": "ijson",
+            "python": "py3",
+            "source": "ICRAR/ijson",
+            "fork": "gounthar/ijson",
+            "lang": "c",
+            "status": "not-needed",
+            "notes": "Pure Python wheel (py3-none-any) available on PyPI",
+            "version": "3.5.0"
+        },
+        {
+            "name": "numpy",
+            "version": "2.5.0.dev0",
+            "python": "cp313",
+            "source": "numpy/numpy",
+            "fork": "gounthar/numpy",
+            "lang": "c+fortran",
+            "status": "built",
+            "notes": "Transitive dep of torch, most fundamental scientific Python package. Built on F3, in index."
+        },
+        {
+            "name": "grpcio",
+            "version": "1.79.0.dev0",
+            "python": "cp313",
+            "source": "grpc/grpc",
+            "fork": "gounthar/grpc",
+            "lang": "c",
+            "status": "built",
+            "notes": "vLLM gRPC serving. 20-30 min compile from source. Built on F3, in index."
+        },
+        {
+            "name": "orjson",
+            "version": "3.11.7",
+            "python": "cp313",
+            "source": "ijl/orjson",
+            "fork": "gounthar/orjson",
+            "lang": "rust",
+            "status": "built",
+            "notes": "Fast JSON for FastAPI. Built on F3, in index."
+        },
+        {
+            "name": "multidict",
+            "version": "6.7.2.dev0",
+            "python": "cp313",
+            "source": "aio-libs/multidict",
+            "fork": "gounthar/multidict",
+            "lang": "c",
+            "status": "built",
+            "notes": "aiohttp transitive dep. Built on F3, in index."
+        },
+        {
+            "name": "frozenlist",
+            "version": "1.8.1.dev0",
+            "python": "cp313",
+            "source": "aio-libs/frozenlist",
+            "fork": "gounthar/frozenlist",
+            "lang": "c",
+            "status": "built",
+            "notes": "aiohttp transitive dep. Built on F3, in index."
+        },
+        {
+            "name": "propcache",
+            "version": "0.4.2.dev0",
+            "python": "cp313",
+            "source": "aio-libs/propcache",
+            "fork": "gounthar/propcache",
+            "lang": "c",
+            "status": "built",
+            "notes": "aiohttp/yarl transitive dep. Built on F3, in index."
+        },
+        {
+            "name": "hf-xet",
+            "version": "1.3.2",
+            "python": "cp313",
+            "source": "huggingface/xet-core",
+            "fork": "gounthar/xet-core",
+            "lang": "rust",
+            "status": "pending",
+            "notes": "Fast large file transfers for HuggingFace Hub. Rust + maturin, builds ~60 min on F3."
+        },
+        {
+            "name": "llama-cpp-python",
+            "version": "0.3.16",
+            "python": "cp313",
+            "source": "abetlen/llama-cpp-python",
+            "fork": "gounthar/llama-cpp-python",
+            "lang": "c++",
+            "status": "pending",
+            "notes": "Python bindings for llama.cpp. Builds with GGML_NATIVE=ON for RVV support. ~20 min on F3."
+        }
+    ],
+    "build_target": {
+        "arch": "riscv64",
+        "platform_tag": "linux_riscv64",
+        "python": "cp313",
+        "hardware": "BananaPi F3 (SpacemiT K1)"
     }
-  ],
-  "build_target": {
-    "arch": "riscv64",
-    "platform_tag": "linux_riscv64",
-    "python": "cp313",
-    "hardware": "BananaPi F3 (SpacemiT K1)"
-  }
 }
