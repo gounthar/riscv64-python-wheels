@@ -296,6 +296,16 @@
       "lang": "c",
       "status": "pending",
       "notes": "aiohttp/yarl transitive dep. No riscv64 wheel on PyPI."
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.3.2",
+      "python": "cp313",
+      "source": "huggingface/xet-core",
+      "fork": "gounthar/xet-core",
+      "lang": "rust",
+      "status": "pending",
+      "notes": "Fast large file transfers for HuggingFace Hub. Rust + maturin, builds ~60 min on F3."
     }
   ],
   "build_target": {
