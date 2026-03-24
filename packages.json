@@ -138,7 +138,7 @@
     },
     {
       "name": "torch",
-      "version": "2.10.0",
+      "version": "2.11.0",
       "python": "cp313",
       "source": "pytorch/pytorch",
       "fork": "gounthar/pytorch",
