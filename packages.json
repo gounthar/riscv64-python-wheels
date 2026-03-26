@@ -38,7 +38,7 @@
     },
     {
       "name": "cryptography",
-      "version": "46.0.5",
+      "version": "46.0.6",
       "python": "cp313-abi3",
       "source": "pyca/cryptography",
       "fork": "gounthar/cryptography",
