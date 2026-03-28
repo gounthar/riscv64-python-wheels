@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "pydantic-core",
-      "version": "2.42.0",
+      "version": "2.44.0",
       "python": "cp313",
       "source": "pydantic/pydantic-core",
       "fork": "gounthar/pydantic-core",
