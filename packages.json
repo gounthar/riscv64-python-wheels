@@ -239,7 +239,7 @@
     },
     {
       "name": "numpy",
-      "version": "2.4.3",
+      "version": "2.4.4",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
