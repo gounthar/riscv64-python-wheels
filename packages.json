@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "pydantic-core",
-      "version": "2.44.0",
+      "version": "2.45.0",
       "python": "cp313",
       "source": "pydantic/pydantic-core",
       "fork": "gounthar/pydantic-core",
@@ -129,7 +129,7 @@
     },
     {
       "name": "pillow",
-      "version": "12.1.1",
+      "version": "12.2.0",
       "python": "cp313",
       "source": "python-pillow/Pillow",
       "fork": "gounthar/Pillow",
@@ -259,7 +259,7 @@
     },
     {
       "name": "orjson",
-      "version": "3.11.7",
+      "version": "3.11.8",
       "python": "cp313",
       "source": "ijl/orjson",
       "fork": "gounthar/orjson",
