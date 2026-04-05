@@ -100,13 +100,9 @@ REPO_NAME="${REPO_MAP[$PACKAGE]:-"$PACKAGE"}"
 SRC_DIR="${SRC_BASE}/${PACKAGE}"
 
 if [ ! -d "$SRC_DIR" ]; then
-    echo "Error: Source directory not found: $SRC_DIR"
-    echo ""
-    echo "Clone the source first:"
-    echo "  mkdir -p $SRC_BASE"
-    echo "  cd $SRC_BASE"
-    echo "  git clone https://github.com/gounthar/${REPO_NAME}.git ${PACKAGE}"
-    exit 1
+    echo "Source directory not found: $SRC_DIR — cloning..."
+    mkdir -p "$SRC_BASE"
+    git clone "https://github.com/gounthar/${REPO_NAME}.git" "$SRC_DIR"
 fi
 
 BUILD_DIR="${SRC_DIR}/${SUBDIR}"
