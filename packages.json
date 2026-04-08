@@ -38,7 +38,7 @@
     },
     {
       "name": "cryptography",
-      "version": "46.0.6",
+      "version": "46.0.7",
       "python": "cp313-abi3",
       "source": "pyca/cryptography",
       "fork": "gounthar/cryptography",
@@ -157,7 +157,7 @@
     },
     {
       "name": "fastar",
-      "version": "0.9.0",
+      "version": "0.10.0",
       "python": "cp313",
       "source": "DoctorJohn/fastar",
       "fork": "gounthar/fastar",
