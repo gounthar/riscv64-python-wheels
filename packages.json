@@ -184,7 +184,7 @@
     },
     {
       "name": "msgspec",
-      "version": "0.20.0",
+      "version": "0.21.0",
       "python": "cp313",
       "source": "jcrist/msgspec",
       "fork": "gounthar/msgspec",
