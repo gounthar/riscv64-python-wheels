@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "pydantic-core",
-      "version": "2.46.0",
+      "version": "2.46.3",
       "python": "cp313",
       "source": "pydantic/pydantic-core",
       "fork": "gounthar/pydantic-core",
@@ -38,7 +38,7 @@
     },
     {
       "name": "cryptography",
-      "version": "46.0.7",
+      "version": "47.0.0",
       "python": "cp313-abi3",
       "source": "pyca/cryptography",
       "fork": "gounthar/cryptography",
