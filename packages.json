@@ -11,7 +11,7 @@
     },
     {
       "name": "tokenizers",
-      "version": "0.22.2",
+      "version": "0.23.1",
       "python": "cp39-abi3",
       "source": "huggingface/tokenizers",
       "fork": "gounthar/tokenizers",
@@ -38,7 +38,7 @@
     },
     {
       "name": "cryptography",
-      "version": "47.0.0",
+      "version": "48.0.0",
       "python": "cp313-abi3",
       "source": "pyca/cryptography",
       "fork": "gounthar/cryptography",
