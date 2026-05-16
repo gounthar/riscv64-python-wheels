@@ -111,7 +111,7 @@
     },
     {
       "name": "tiktoken",
-      "version": "0.12.0",
+      "version": "0.13.0",
       "python": "cp313",
       "source": "openai/tiktoken",
       "fork": "gounthar/tiktoken",
@@ -239,7 +239,7 @@
     },
     {
       "name": "numpy",
-      "version": "2.4.4",
+      "version": "2.4.5",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
