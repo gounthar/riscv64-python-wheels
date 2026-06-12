@@ -249,7 +249,7 @@
     },
     {
       "name": "grpcio",
-      "version": "1.81.0",
+      "version": "1.81.1",
       "python": "cp313",
       "source": "grpc/grpc",
       "fork": "gounthar/grpc",
