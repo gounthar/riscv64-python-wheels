@@ -120,7 +120,7 @@
     },
     {
       "name": "blake3",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "python": "cp313",
       "source": "oconnor663/blake3-py",
       "fork": "gounthar/blake3-py",
@@ -239,7 +239,7 @@
     },
     {
       "name": "numpy",
-      "version": "2.4.6",
+      "version": "2.5.0",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
