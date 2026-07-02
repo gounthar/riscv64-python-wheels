@@ -129,7 +129,7 @@
     },
     {
       "name": "pillow",
-      "version": "12.2.0",
+      "version": "12.3.0",
       "python": "cp313",
       "source": "python-pillow/Pillow",
       "fork": "gounthar/Pillow",
