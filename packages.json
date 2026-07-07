@@ -29,7 +29,7 @@
     },
     {
       "name": "cffi",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "python": "cp313",
       "source": "python-cffi/cffi",
       "fork": "gounthar/cffi",
@@ -235,11 +235,11 @@
       "lang": "c",
       "status": "not-needed",
       "notes": "Pure Python wheel (py3-none-any) available on PyPI",
-      "version": "3.5.0"
+      "version": "3.5.1"
     },
     {
       "name": "numpy",
-      "version": "2.5.0",
+      "version": "2.5.1",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
@@ -249,7 +249,7 @@
     },
     {
       "name": "grpcio",
-      "version": "1.81.1",
+      "version": "1.82.0",
       "python": "cp313",
       "source": "grpc/grpc",
       "fork": "gounthar/grpc",
