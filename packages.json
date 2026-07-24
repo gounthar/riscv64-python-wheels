@@ -207,7 +207,7 @@
       "fork": "gounthar/rignore",
       "lang": "rust",
       "status": "built",
-      "version": "0.7.6"
+      "version": "0.8.0"
     },
     {
       "name": "uvloop",
@@ -249,7 +249,7 @@
     },
     {
       "name": "grpcio",
-      "version": "1.82.1",
+      "version": "1.83.0",
       "python": "cp313",
       "source": "grpc/grpc",
       "fork": "gounthar/grpc",
