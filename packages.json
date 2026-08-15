@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "pydantic-core",
-      "version": "2.47.0",
+      "version": "2.48.0",
       "python": "cp313",
       "source": "pydantic/pydantic-core",
       "fork": "gounthar/pydantic-core",
@@ -29,7 +29,7 @@
     },
     {
       "name": "cffi",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "python": "cp313",
       "source": "python-cffi/cffi",
       "fork": "gounthar/cffi",
@@ -207,7 +207,7 @@
       "fork": "gounthar/rignore",
       "lang": "rust",
       "status": "built",
-      "version": "0.8.0"
+      "version": "0.8.1"
     },
     {
       "name": "uvloop",
@@ -239,7 +239,7 @@
     },
     {
       "name": "numpy",
-      "version": "2.5.1",
+      "version": "2.5.2",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
@@ -259,7 +259,7 @@
     },
     {
       "name": "orjson",
-      "version": "3.11.9",
+      "version": "3.12.0",
       "python": "cp313",
       "source": "ijl/orjson",
       "fork": "gounthar/orjson",
