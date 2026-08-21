@@ -157,7 +157,7 @@
     },
     {
       "name": "fastar",
-      "version": "0.11.0",
+      "version": "0.12.0",
       "python": "cp313",
       "source": "DoctorJohn/fastar",
       "fork": "gounthar/fastar",
@@ -193,7 +193,7 @@
     },
     {
       "name": "pyzmq",
-      "version": "27.1.0",
+      "version": "27.2.0",
       "python": "cp313",
       "source": "zeromq/pyzmq",
       "fork": "gounthar/pyzmq",
