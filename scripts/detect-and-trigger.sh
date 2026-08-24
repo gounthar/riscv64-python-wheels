@@ -53,9 +53,9 @@ for i in $(seq 0 $((PACKAGE_COUNT - 1))); do
     fork=$(jq -r ".packages[$i].fork" "$PACKAGES_FILE")
     status=$(jq -r ".packages[$i].status" "$PACKAGES_FILE")
 
-    # Skip packages that aren't built yet
-    if [ "$status" = "pending" ]; then
-        printf "  %-20s  SKIPPED (status: pending)\n" "$name"
+    # Skip packages we don't build: not ready yet, or upstream ships them
+    if [ "$status" = "pending" ] || [ "$status" = "not-needed" ]; then
+        printf "  %-20s  SKIPPED (status: %s)\n" "$name" "$status"
         continue
     fi
 

@@ -7,7 +7,8 @@
       "source": "pydantic/pydantic-core",
       "fork": "gounthar/pydantic-core",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (8 wheels in 2.48.0); no local build needed"
     },
     {
       "name": "tokenizers",
@@ -16,7 +17,8 @@
       "source": "huggingface/tokenizers",
       "fork": "gounthar/tokenizers",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (1 wheel in 0.23.1); no local build needed"
     },
     {
       "name": "sentencepiece",
@@ -52,7 +54,8 @@
       "source": "samuelcolvin/watchfiles",
       "fork": "gounthar/watchfiles",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (8 wheels in 1.2.0); no local build needed"
     },
     {
       "name": "zstandard",
@@ -79,7 +82,8 @@
       "source": "tree-sitter/py-tree-sitter",
       "fork": "gounthar/py-tree-sitter",
       "lang": "c",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (5 wheels in 0.26.0); no local build needed"
     },
     {
       "name": "tree-sitter-bash",
@@ -107,7 +111,8 @@
       "source": "huggingface/safetensors",
       "fork": "gounthar/safetensors",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (1 wheel in 0.8.0); no local build needed"
     },
     {
       "name": "tiktoken",
@@ -125,7 +130,8 @@
       "source": "oconnor663/blake3-py",
       "fork": "gounthar/blake3-py",
       "lang": "rust+c",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (8 wheels in 1.0.9); no local build needed"
     },
     {
       "name": "pillow",
@@ -153,7 +159,8 @@
       "source": "pydantic/jiter",
       "fork": "gounthar/jiter",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (7 wheels in 0.16.0); no local build needed"
     },
     {
       "name": "fastar",
@@ -162,7 +169,8 @@
       "source": "DoctorJohn/fastar",
       "fork": "gounthar/fastar",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (11 wheels in 0.12.0); no local build needed"
     },
     {
       "name": "openai-harmony",
@@ -198,7 +206,8 @@
       "source": "zeromq/pyzmq",
       "fork": "gounthar/pyzmq",
       "lang": "c",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (1 wheel in 27.2.0); no local build needed"
     },
     {
       "name": "rignore",
@@ -206,8 +215,9 @@
       "source": "patrick91/rignore",
       "fork": "gounthar/rignore",
       "lang": "rust",
-      "status": "built",
-      "version": "0.8.1"
+      "status": "not-needed",
+      "version": "0.8.1",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (11 wheels in 0.8.1); no local build needed"
     },
     {
       "name": "uvloop",
@@ -294,8 +304,8 @@
       "source": "aio-libs/propcache",
       "fork": "gounthar/propcache",
       "lang": "c",
-      "status": "built",
-      "notes": "aiohttp/yarl transitive dep. Built on F3, in index."
+      "status": "not-needed",
+      "notes": "Upstream publishes riscv64 wheels on PyPI (14 wheels in 0.5.2); no local build needed"
     },
     {
       "name": "hf-xet",
