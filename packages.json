@@ -249,7 +249,7 @@
     },
     {
       "name": "numpy",
-      "version": "2.5.2",
+      "version": "2.5.3",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
@@ -279,7 +279,7 @@
     },
     {
       "name": "multidict",
-      "version": "6.7.1",
+      "version": "6.8.0",
       "python": "cp313",
       "source": "aio-libs/multidict",
       "fork": "gounthar/multidict",
