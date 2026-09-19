@@ -279,7 +279,7 @@
     },
     {
       "name": "multidict",
-      "version": "6.8.0",
+      "version": "6.9.0",
       "python": "cp313",
       "source": "aio-libs/multidict",
       "fork": "gounthar/multidict",
