@@ -40,7 +40,7 @@
     },
     {
       "name": "cryptography",
-      "version": "50.0.1",
+      "version": "50.0.2",
       "python": "cp313-abi3",
       "source": "pyca/cryptography",
       "fork": "gounthar/cryptography",
@@ -144,7 +144,7 @@
     },
     {
       "name": "torch",
-      "version": "2.14.0",
+      "version": "2.14.1",
       "python": "cp313",
       "source": "pytorch/pytorch",
       "fork": "gounthar/pytorch",
@@ -192,7 +192,7 @@
     },
     {
       "name": "msgspec",
-      "version": "0.21.1",
+      "version": "0.22.0",
       "python": "cp313",
       "source": "jcrist/msgspec",
       "fork": "gounthar/msgspec",
