@@ -183,7 +183,7 @@
     },
     {
       "name": "httptools",
-      "version": "0.8.0",
+      "version": "0.9.0",
       "python": "cp313",
       "source": "MagicStack/httptools",
       "fork": "gounthar/httptools",
@@ -279,7 +279,7 @@
     },
     {
       "name": "multidict",
-      "version": "7.0.0",
+      "version": "7.1.0",
       "python": "cp313",
       "source": "aio-libs/multidict",
       "fork": "gounthar/multidict",
