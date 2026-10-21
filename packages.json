@@ -45,7 +45,8 @@
       "source": "pyca/cryptography",
       "fork": "gounthar/cryptography",
       "lang": "rust+c",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Built in riseproject-dev/python-wheels (manylinux + musllinux, riseproject-dev/python-wheels#3540); fork build retired"
     },
     {
       "name": "watchfiles",
@@ -121,7 +122,8 @@
       "source": "openai/tiktoken",
       "fork": "gounthar/tiktoken",
       "lang": "rust",
-      "status": "built"
+      "status": "not-needed",
+      "notes": "Built in riseproject-dev/python-wheels (manylinux + musllinux, riseproject-dev/python-wheels#2629); fork build retired"
     },
     {
       "name": "blake3",
