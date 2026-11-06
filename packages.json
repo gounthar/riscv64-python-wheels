@@ -22,7 +22,7 @@
     },
     {
       "name": "sentencepiece",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "python": "cp313",
       "source": "google/sentencepiece",
       "fork": "gounthar/sentencepiece",
