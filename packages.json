@@ -251,7 +251,7 @@
     },
     {
       "name": "numpy",
-      "version": "2.5.4",
+      "version": "2.5.5",
       "python": "cp313",
       "source": "numpy/numpy",
       "fork": "gounthar/numpy",
@@ -261,7 +261,7 @@
     },
     {
       "name": "grpcio",
-      "version": "1.85.1",
+      "version": "1.85.3",
       "python": "cp313",
       "source": "grpc/grpc",
       "fork": "gounthar/grpc",
